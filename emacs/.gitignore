@@ -1,0 +1,24 @@
+# Runtime state
+autosaves/
+backups/
+eln-cache/
+eshell/
+url/
+tree-sitter/
+
+# Local-only customization
+custom.el
+
+# straight.el artifacts
+straight/
+
+# Compiled files
+*.elc
+*.eln
+
+# Editor noise
+*~
+\#*\#
+.\#*
+
+.mc-lists.el

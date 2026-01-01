@@ -1,0 +1,14 @@
+* dotfiles
+
+Personal configuration files.
+
+To install:
+
+#+begin_src sh
+  ./deploy.sh
+#+end_src
+
+** Emacs
+
+The Emacs config lives in =emacs/= and is meant to be used via a symlink at
+[[~/.config/emacs]].

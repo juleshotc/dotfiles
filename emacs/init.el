@@ -118,6 +118,11 @@
   :defer t
   :init
   (require 'citre-config)
+  ;; zypper doesn't pack universal ctags with readtags
+  ;; So, point to the manually compiled binaries
+  (setq citre-ctags-program "/usr/local/bin/ctags")
+  (setq citre-readtags-program "/usr/local/bin/readtags")
+
   (global-set-key (kbd "C-x c p") #'citre-peek)
   (global-set-key (kbd "C-x c j") #'citre-jump)
   :config

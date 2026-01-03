@@ -172,23 +172,6 @@
 
 (setq eshell-prompt-regexp "^.*\( \[[0-9]+\]\)? [#$] ")
 
-;; god mode toggled by C-ESC
-(use-package god-mode
-  :ensure t
-  :bind (("C-<escape>" . god-local-mode)      ; Global toggle
-         :map god-local-mode-map
-         ("C-<escape>" . god-local-mode))     ; Toggle back while in the mode
-  :config
-  ;; Optional: This makes the cursor a "Box" in God Mode 
-  ;; and a "Bar" when you are typing normally.
-  (defun my-god-mode-update-cursor ()
-    (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
-  (add-hook 'post-command-hook #'my-god-mode-update-cursor)
-  
-  ;; Start God Mode by default (optional)
-  ;; (god-mode) 
-  )
-
 (find-file (expand-file-name "~/startup.org"))
 
 (use-package god-mode

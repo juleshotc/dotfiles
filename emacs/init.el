@@ -156,4 +156,16 @@
   (nyan-mode 1)
   (nyan-start-animation))
 
+;; eshell minimal prompt
+(setq eshell-prompt-function
+      (lambda ()
+        (concat
+         (file-name-nondirectory (directory-file-name (eshell/pwd)))
+         (if (zerop eshell-last-command-status)
+             ""
+           (format " [%d]" eshell-last-command-status))
+         (if (= (user-uid) 0) " # " " $ "))))
+
+(setq eshell-prompt-regexp "^.*\( \[[0-9]+\]\)? [#$] ")
+
 (find-file (expand-file-name "~/startup.org"))

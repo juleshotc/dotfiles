@@ -79,7 +79,9 @@
           (lambda ()
             (when (treesit-language-available-p 'c)
               (setq indent-tabs-mode nil
-                    c-ts-mode-indent-offset 4))))
+                    c-ts-mode-indent-offset 4)
+	      (setq c-ts-mode-indent-style 'k&r)
+	      )))
 
 (use-package cmake-mode
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)

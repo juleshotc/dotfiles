@@ -25,3 +25,6 @@ straight/
 tramp
 
 .mc-lists.el
+
+# Session files
+session.*

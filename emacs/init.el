@@ -73,7 +73,9 @@
   (setq treesit-language-source-alist
         '((c    "https://github.com/tree-sitter/tree-sitter-c"    "v0.21.4")
           (cpp  "https://github.com/tree-sitter/tree-sitter-cpp"  "v0.22.3")
-          (bash "https://github.com/tree-sitter/tree-sitter-bash" "v0.21.0"))))
+          (bash "https://github.com/tree-sitter/tree-sitter-bash" "v0.21.0")
+	  (lua  "https://github.com/tree-sitter-grammars/tree-sitter-lua/" "v0.1.0")
+	  )))
 
 (add-hook 'c-ts-mode-hook
           (lambda ()
@@ -188,3 +190,22 @@
   )
 
 (find-file (expand-file-name "~/startup.org"))
+
+(use-package god-mode
+  :ensure t
+  :bind (("C-<escape>" . god-local-mode)      ; Global toggle
+         :map god-local-mode-map
+         ("C-<escape>" . god-local-mode))     ; Toggle back while in the mode
+  :config
+  ;; Optional: This makes the cursor a "Box" in God Mode 
+  ;; and a "Bar" when you are typing normally.
+  (defun my-god-mode-update-cursor ()
+    (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
+  (add-hook 'post-command-hook #'my-god-mode-update-cursor)
+  
+  ;; Start God Mode by default (optional)
+  ;; (god-mode) 
+  )
+
+;; diff mode with syntax highlighting
+(setq diff-font-lock-syntax 'hunk-also)
